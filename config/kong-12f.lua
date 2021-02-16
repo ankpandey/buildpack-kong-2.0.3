@@ -49,7 +49,7 @@ if expose_service == "admin" then
   admin_listen_ssl = address..":"..default_admin_port_ssl
 elseif expose_service == "adminssl" then
   print("Configuring as Kong admin SSL API")
-  print("Print Configuring as Kong admin SSL API")
+  print(os.getenv("PORT"))
   proxy_listen     = address..":"..default_proxy_port
   proxy_listen_ssl = address..":"..default_proxy_port_ssl
   admin_listen     = address..":"..default_admin_port
