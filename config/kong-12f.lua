@@ -28,6 +28,9 @@ local port              = os.getenv("PORT") or default_proxy_port
 local expose_service    = os.getenv("KONG_EXPOSE") -- `proxy` (default), `admin`, `adminssl`, `proxyssl`
 local pg_url            = os.getenv("DATABASE_URL") or "postgres://localhost:5432/kong"
 
+
+
+
 local parsed_pg_url = url.parse(pg_url, default)
 
 local pg_host = parsed_pg_url.host
@@ -52,7 +55,7 @@ elseif expose_service == "adminssl" then
   print(os.getenv("PORT"))
   proxy_listen     = address..":"..default_proxy_port
   proxy_listen_ssl = address..":"..default_proxy_port_ssl
-  admin_listen     = address..":"..default_admin_port
+  admin_listen     = address..":"..port
   admin_listen_ssl = address..":"..port
 elseif expose_service == "proxyssl" then
   print("Configuring as Kong SSL proxy")
