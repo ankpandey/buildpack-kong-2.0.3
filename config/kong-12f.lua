@@ -97,6 +97,7 @@ config_file:write(config)
 config_file:close()
 
 print("Wrote Kong config: "..config_filename)
+print("kong port: "..port)
 -- print("Wrote Kong config "..config_filename..": \n"..config)
 
 -- Also set KONG env vars which **override** config file values.
